@@ -10,7 +10,8 @@ RottenMangoes::Application.routes.draw do
       resource :profile
 
       namespace :admin do
-        resources :movies
-          resources :reviews, only: [:new, :create]
+        resources :users
+          # resources :movies
+          #   resources :reviews, only: [:new, :create]
       end
 end

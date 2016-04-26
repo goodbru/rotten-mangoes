@@ -39,6 +39,8 @@ end
 # gem 'unicorn'
 
   gem 'carrierwave'
+
+  gem 'kaminari'
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
 
