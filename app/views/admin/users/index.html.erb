@@ -1,4 +1,5 @@
 <h1>Rotten Mangoes</h1>
+<%= paginate @users %>
 <hr>
 <% @users.each do |user| %>
   <h2>ID: <%= user.id %></h2>
