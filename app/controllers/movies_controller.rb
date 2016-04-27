@@ -2,7 +2,26 @@ class MoviesController < ApplicationController
   # before_action :set_movie, only: [:show, :edit, :update, :destroy]
 
   def index
-    @movies = Movie.all
+    search = Movie.all
+    if params.has_key?(:title)
+    q = "%#{params[:title]}%"
+    search = search.where("title like ?", q)
+    end
+    if params.has_key?(:director)
+    q = "%#{params[:director]}%"
+    search = search.where("director like ?", q)
+    end
+    if params.has_key?(:duration)
+      time = params[:duration]
+      if time == "1"
+            search = search.where("runtime_in_minutes < 90")
+      elsif time == "2"
+            search = search.where("runtime_in_minutes BETWEEN 90 AND 120")
+      elsif time == "3"
+            search = search.where("runtime_in_minutes > 120")
+      end
+    end
+    @movies = search
   end
 
   def show
@@ -25,6 +44,11 @@ class MoviesController < ApplicationController
     else
       render :new
     end
+  end
+
+  def search
+    puts "searched"
+    @movie
   end
 
   def update
