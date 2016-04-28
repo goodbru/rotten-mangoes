@@ -12,6 +12,6 @@ RottenMangoes::Application.routes.draw do
       resource :profile
 
       namespace :admin do
-        resources :users
+        resources :users 
       end
 end

@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :reviews
+  has_many :reviews, dependent: :delete_all
 
   has_secure_password
 

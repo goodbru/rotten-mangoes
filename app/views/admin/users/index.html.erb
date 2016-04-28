@@ -1,4 +1,5 @@
 <h1>Rotten Mangoes</h1>
+
 <%= paginate @users %>
 <hr>
 <% @users.each do |user| %>
@@ -6,5 +7,7 @@
   <h3>First Name: <%= user.firstname %></h3>
   <h4>Last Name: <%= user.lastname %></h4>
   <h5>Email: <%= user.email %></h5>
+  <hr>
+  <h6>(<%= link_to "Edit", edit_admin_user_path(user) %>, <%= link_to "Delete", admin_user_path(user), method: :delete, data: { confirm: "You sure?" } %>)</h6>
   <hr>
 <% end %>
