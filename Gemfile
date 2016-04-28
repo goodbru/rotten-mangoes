@@ -37,6 +37,8 @@ end
 
 # Use unicorn as the app server
 # gem 'unicorn'
+  gem 'bootstrap-sass'
+  
 
   gem 'carrierwave'
 
